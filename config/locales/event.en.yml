@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    errors:
+      models:
+        event:
+          attributes:
+            start_time:
+              start_time_should_be_future: The event should start in the future
+            end_time:
+              end_time_should_be_after_start_time: End time cannot be before the start time

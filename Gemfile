@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'coffee-rails', '~> 4.2'
+gem 'faker' # added in production to populate test events
 gem 'figaro'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.21'
@@ -22,7 +23,6 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'factory_bot'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'pry'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
