@@ -12,6 +12,8 @@ class Event < ApplicationRecord
   has_many :categories_events, dependent: :destroy
   has_many :categories, through: :categories_events
 
+  self.per_page = 10
+
   private
 
   def start_time_is_in_future
