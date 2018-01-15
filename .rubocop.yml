@@ -1,0 +1,35 @@
+Documentation:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+StringLiterals:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+  Enabled: true
+
+Metrics/MethodLength:
+  Max: 25
+  Enabled: true
+
+Style/DotPosition:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'db/schema.rb'
