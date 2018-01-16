@@ -9,13 +9,13 @@ RSpec.describe Api::EventsController, type: :controller do
 
     describe 'no arguments in search' do
       before do
-        15.times { create(:event) }
+        35.times { create(:event) }
       end
 
       it 'returns the first page of events' do
         request
         expect(response).to have_http_status(:ok)
-        expect(json_response.count).to eq(10)
+        expect(json_response.count).to eq(24)
       end
 
       describe 'no arguments but second page' do
@@ -24,7 +24,7 @@ RSpec.describe Api::EventsController, type: :controller do
         it 'returns the first page of events' do
           request
           expect(response).to have_http_status(:ok)
-          expect(json_response.count).to eq(5)
+          expect(json_response.count).to eq(11)
         end
       end
     end

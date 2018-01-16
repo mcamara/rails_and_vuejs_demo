@@ -12,7 +12,7 @@ class Event < ApplicationRecord
   has_many :categories_events, dependent: :destroy
   has_many :categories, through: :categories_events
 
-  self.per_page = 10
+  self.per_page = 24
 
   private
 

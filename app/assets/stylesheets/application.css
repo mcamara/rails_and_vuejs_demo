@@ -11,5 +11,20 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require bootstrap/dist/css/bootstrap
  *= require_self
  */
+
+   div.event {
+     padding: 40px;
+     height: 350px;
+   }
+   .event-image {
+     height: 180px;
+     width: 100%;
+     overflow: hidden
+   }
+
+   .event-image img {
+     height: auto;
+   }

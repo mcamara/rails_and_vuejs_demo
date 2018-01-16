@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :event do
-    name { [Faker::Zelda.game, Faker::Simpsons.quote, Faker::SiliconValley.motto, Faker::Book.title].sample }
+    name { Faker::Lorem.sentence }
     description { Faker::Lorem.paragraph }
     image_url { Faker::LoremPixel.image("640x480", secure: true) }
     city { create(:city) }

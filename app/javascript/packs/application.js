@@ -9,14 +9,17 @@
 
 import Vue from 'vue/dist/vue.esm'
 import App from '../components/app.vue'
+import axios from 'axios/dist/axios'
+import VueAxios from 'vue-axios/dist/vue-axios.min'
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('app'))
+
+  Vue.use(VueAxios, axios)
   const app = new Vue({
     el: 'app',
-    template: '<App/>',
-    components: { App }
+    components: {
+      'app': App
+    }
   })
-
-  console.log(app)
 })
