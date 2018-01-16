@@ -25,3 +25,6 @@
 # Ignore application configuration
 /config/application.yml
 spec/coverage/
+/public/packs
+/public/packs-test
+/node_modules

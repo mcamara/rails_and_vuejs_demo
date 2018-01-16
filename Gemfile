@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.5.0'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -8,6 +9,7 @@ end
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'figaro'
+gem 'foreman'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.21'
 gem 'puma', '~> 3.7'
@@ -18,6 +20,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'sidekiq'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'webpacker'
 gem 'will_paginate'
 
 # added in production to populate test events, this should never be in production in a real project

@@ -1,24 +1,6 @@
-# README
+# Moteefe Test
+Tests: [![CircleCI](https://circleci.com/gh/mcamara/moteefe_test.svg?style=svg)](https://circleci.com/gh/mcamara/moteefe_test)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Link to the test app](https://moteefe-test.herokuapp.com)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Built using Vue, Ruby on Rails 5.1 and Heroku (among others).
