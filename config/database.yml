@@ -13,4 +13,7 @@ test:
 
 production:
   <<: *default
+  host: <%= ENV.fetch('database_host')  %>
   database: <%= ENV.fetch('database_name')  %>
+  username: <%= ENV.fetch('database_username') %>
+  password: <%= ENV.fetch('database_password') %>

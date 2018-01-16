@@ -7,7 +7,6 @@ end
 
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'faker' # added in production to populate test events
 gem 'figaro'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.21'
@@ -21,11 +20,14 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate'
 
+# added in production to populate test events, this should never be in production in a real project
+gem 'factory_bot'
+gem 'factory_bot_rails'
+gem 'faker'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
-  gem 'factory_bot'
-  gem 'factory_bot_rails'
   gem 'pry'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
