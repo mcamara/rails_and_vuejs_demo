@@ -13,12 +13,14 @@ import axios from 'axios/dist/axios'
 import VueAxios from 'vue-axios/dist/vue-axios.min'
 import moment from "moment"
 import VueMomentJS from "vue-momentjs/index"
+import VueLocalStorage from 'vue-localstorage/dist/vue-local-storage.min'
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('app'))
 
   Vue.use(VueAxios, axios)
   Vue.use(VueMomentJS, moment)
+  Vue.use(VueLocalStorage)
   const app = new Vue({
     el: 'app',
     components: {

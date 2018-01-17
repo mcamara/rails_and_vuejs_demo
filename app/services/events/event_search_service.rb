@@ -30,7 +30,8 @@ class Events::EventSearchService
   end
 
   def search_by_categories
-    return if @params[:categories].to_a.reject { |s| s.to_s.strip.empty? }.blank?
-    @scope = @scope.joins(:categories).where('categories.id in (?)', @params[:categories])
+    categories = @params[:categories].to_a.map(&:to_i).reject(&:zero?)
+    return if categories.blank?
+    @scope = @scope.joins(:categories).where('categories.id in (?)', categories)
   end
 end
