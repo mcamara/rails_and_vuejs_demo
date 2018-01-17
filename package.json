@@ -1,5 +1,5 @@
 {
-  "name": "moteefe_test",
+  "name": "rails_and_vuejs_demo",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.2.0",
