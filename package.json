@@ -6,9 +6,11 @@
     "axios": "0.17.1",
     "bootstrap": "3.3.7",
     "coffeescript": "1.12.7",
+    "moment": "^2.20.1",
     "vue": "^2.5.13",
     "vue-axios": "2.0.2",
     "vue-loader": "^13.7.0",
+    "vue-momentjs": "^0.1.1",
     "vue-template-compiler": "^2.5.13"
   },
   "devDependencies": {

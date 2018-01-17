@@ -4,8 +4,8 @@ class Api::EventsController < ApplicationController
               .new(event_params)
               .search
               .includes(:categories, :city)
-              .page(params[:page])
-    render json: @events, each_serializer: Api::EventSerializer
+    response.headers['X-Total-Count'] = @events.count
+    render json: @events.page(params[:page]), each_serializer: Api::EventSerializer
   end
 
   private
@@ -13,9 +13,9 @@ class Api::EventsController < ApplicationController
   def event_params
     params.permit(
       :name,
-      :categories,
       :city,
-      :start_date
+      :start_time,
+      categories: []
     )
   end
 end

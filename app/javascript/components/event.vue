@@ -4,8 +4,15 @@
       <img :src="event.image_url">
     </div>
     <div class="event-title">
-      <h3>{{ event.name }}</h3>
-      <h4>{{ event.city.name }}</h4>
+      <h4>{{ event.name }}</h4>
+      <h5>{{ event.city.name }} </h5>
+      <h5><small> {{ parseTime(event.start_time) }}</small></h5>
+      <button
+        class="btn btn-xs btn-link"
+        v-for="category in event.categories"
+        v-text="category.name"
+        v-on:click="searchCategory(category.id)"
+        />
     </div>
 
   </div>
@@ -13,22 +20,30 @@
 
 <script>
   export default {
-    props: ['event']
+    props: ['event'],
+    methods: {
+      searchCategory: function(categoryId) {
+        this.$emit('search', "", categoryId, "")
+      },
+      parseTime: function(time) {
+        return this.$moment(time).format('dddd, DD MMMM, YYYY, h:mm A')
+      }
+    }
   }
 </script>
 
 <style scoped>
-  div.event {
-    padding: 40px;
-    height: 350px;
-  }
-  .event-image {
-    height: 180px;
-    width: 100%;
-    overflow: hidden
-  }
-
-  .event-image img {
-    height: auto;
-  }
+ div.event {
+   padding: 40px;
+   height: 350px;
+ }
+ .event-image {
+   height: 180px;
+   width: 100%;
+   overflow: hidden
+ }
+ .event-image img {
+   height: auto;
+   width: 100%;
+ }
 </style>

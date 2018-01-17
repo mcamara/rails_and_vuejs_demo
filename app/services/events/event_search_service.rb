@@ -16,7 +16,7 @@ class Events::EventSearchService
 
   def search_by_values(value, operator: '=', surround: '')
     return if @params[value].blank?
-    @scope = @scope.where("#{value} #{operator} ?", "#{surround}#{@params[value]}#{surround}")
+    @scope = @scope.where("events.#{value} #{operator} ?", "#{surround}#{@params[value]}#{surround}")
   end
 
   def search_by_city
@@ -30,7 +30,7 @@ class Events::EventSearchService
   end
 
   def search_by_categories
-    return if @params[:categories].blank?
-    @scope = @scope.joins(:categories).where('categories.name in (?)', @params[:categories].split(',').map(&:squish))
+    return if @params[:categories].to_a.reject { |s| s.to_s.strip.empty? }.blank?
+    @scope = @scope.joins(:categories).where('categories.id in (?)', @params[:categories])
   end
 end

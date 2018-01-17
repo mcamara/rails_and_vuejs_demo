@@ -11,11 +11,14 @@ import Vue from 'vue/dist/vue.esm'
 import App from '../components/app.vue'
 import axios from 'axios/dist/axios'
 import VueAxios from 'vue-axios/dist/vue-axios.min'
+import moment from "moment"
+import VueMomentJS from "vue-momentjs/index"
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('app'))
 
   Vue.use(VueAxios, axios)
+  Vue.use(VueMomentJS, moment)
   const app = new Vue({
     el: 'app',
     components: {

@@ -60,9 +60,9 @@ RSpec.describe Api::EventsController, type: :controller do
     end
 
     describe 'searching by category' do
-      let(:params) { { categories: "Thriller, Comedy" } }
       let(:category1) { create(:category, name: 'Thriller') }
       let(:category2) { create(:category, name: 'Comedy') }
+      let(:params) { { categories: [category1.id, category2.id] } }
       let!(:event1) { create(:event, categories: [category1, category2], start_time: Time.now + 1.minute) }
       let!(:event2) { create(:event, categories: [create(:category)]) }
       let!(:event3) { create(:event, categories: [create(:category)]) }
@@ -72,8 +72,19 @@ RSpec.describe Api::EventsController, type: :controller do
         request
         expect(json_response.count).to eq(2)
         expect(json_response[0]["name"]).to eq(event1.name)
-        expect(json_response[0]['categories'][0]['name']).to eq('Thriller')
-        expect(json_response[0]['categories'][1]['name']).to eq('Comedy')
+        expect(json_response[0]['categories'].map { |cat| cat['name'] }).to eq(['Thriller', 'Comedy'])
+      end
+    end
+
+    describe 'searching by date' do
+      let(:params) { { start_time: (Time.now + 2.days).strftime("%Y-%m-%d") } }
+      let!(:event1) { create(:event, start_time: Time.now + 1.day) }
+      let!(:event2) { create(:event, start_time: Time.now + 3.days) }
+
+      it 'returns events that match categories' do
+        request
+        expect(json_response.count).to eq(1)
+        expect(json_response[0]["name"]).to eq(event2.name)
       end
     end
   end

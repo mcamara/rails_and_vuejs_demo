@@ -46,9 +46,9 @@ RSpec.describe Events::EventSearchService do
     end
 
     describe 'search by category' do
-      let(:args) { { categories: "Thriller, Comedy"} }
       let(:category1) { create(:category, name: 'Thriller') }
       let(:category2) { create(:category, name: 'Comedy') }
+      let(:args) { { categories: [category1.id, category2.id] } }
       let(:event1) { create(:event, categories: [category1, create(:category)], start_time: Time.now + 1.minute) }
       let(:event2) { create(:event, categories: [create(:category)]) }
       let(:event3) { create(:event, categories: [create(:category)]) }
